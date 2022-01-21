@@ -67,37 +67,10 @@
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
--- TODO!
-
--- Create new tables, according to your domain model
--- TODO!
-
--- Insert data into your database that reflects the sample data shown above
--- Use hard-coded foreign key IDs when necessary
--- TODO!
-
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
-
--- The SQL statement for the movies output
--- TODO!
-
--- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
-
-
--- The SQL statement for the cast output
--- TODO!
-
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS cast;
 
-
+-- Create new tables, according to your domain model
 CREATE TABLE movies(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   movie_name TEXT,
@@ -105,7 +78,15 @@ CREATE TABLE movies(
   ratings TEXT,
   director TEXT
 );
+CREATE TABLE cast (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_name TEXT,
+  actor_name TEXT,
+  character_name TEXT
+);
 
+-- Insert data into your database that reflects the sample data shown above
+-- Use hard-coded foreign key IDs when necessary
 INSERT INTO movies (
     movie_name,
     year_out,
@@ -142,12 +123,7 @@ INSERT INTO movies (
     "Christopher Nolan"
 );
 
-CREATE TABLE cast (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  movie_name TEXT,
-  actor_name TEXT,
-  character_name TEXT
-);
+
 
 INSERT INTO cast (
     movie_name,
@@ -167,3 +143,136 @@ INSERT INTO cast (
     "Michael Caine",         
     "Alfred"
 ); 
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "Batman Begins",
+    "Liam Neeson",
+    "Ra's Al Ghul"
+); 
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "Batman Begins",
+    "Katie Holmes",
+    "Rachel Dawes"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "Batman Begins",
+    "Gary Oldman",
+    "Commissioner Gordon"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight",
+    "Christian Bale", 
+    "Bruce Wayne"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight",
+    "Heath Ledger",
+    "Joker"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight",
+    "Aaron Eckhart",
+    "Harvey Dent"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight",
+    "Michael Caine",         
+    "Alfred"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight",
+    "Maggie Gyllenhaal",
+    "Rachel Dawes"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight Rises",
+    "Gary Oldman",
+    "Commissioner Gordon"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight Rises",
+    "Tom Hardy",
+    "Bane"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight Rises",
+    "Joseph Gordon-Levitt",
+    "John Blake"
+);
+INSERT INTO cast (
+    movie_name,
+    actor_name,
+    character_name
+) VALUES (
+    "The Dark Knight Rises",
+    "Anne Hathaway",
+    "Selina Kyle"
+);
+
+-- Prints a header for the movies output
+.print "Movies"
+.print "======"
+.print ""
+
+-- The SQL statement for the movies output
+SELECT movie_name, year_out, ratings, director FROM movies;
+
+
+-- Prints a header for the cast output
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
+
+
+-- The SQL statement for the cast output
+SELECT movie_name, actor_name, character_name FROM cast;
+
+
+
+
+
+
